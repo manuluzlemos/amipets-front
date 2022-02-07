@@ -14,7 +14,7 @@ const App: React.FC = (): JSX.Element => {
     element: <MainLayout />,
     children: [
       {path: '*', element: <Navigate to='/404' />},
-      {path: '/', element: <Presentation />},
+      {path: '/', element: <Navigate to='/login' />},
       {path: '/login', element: <LoginForm />},
       {path: '/create', element: <CreateCountForm />},
       {path: '/home', element: <Dashboard page="home" />},

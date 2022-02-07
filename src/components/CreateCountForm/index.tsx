@@ -47,7 +47,6 @@ export function CreateCountForm(){
             }else{
                 setContaCriada('mostrarSucesso');
             }
-            console.log(response.data);
         }        
     }
     

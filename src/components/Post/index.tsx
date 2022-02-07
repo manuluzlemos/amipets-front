@@ -41,16 +41,35 @@ export function Post({
     useEffect(() => {
         async function verificarSalvo(){
             const response = await api.post("/salvos/verificar", {
-                id_usuario: context.usuario !== null ? context.usuario.id_usuario : 1,
+                id_usuario: context.usuario !== null ? context.usuario.id_usuario : 100000,
                 id_postagem: id_postagem
             });
-
+            console.log(context.usuario !== null ? context.usuario.id_usuario : 100000, id_postagem, response);
             setPostSalvo(response.data.salvo);
         }
 
         verificarSalvo();
         console.log(postSalvo);
     }, []);
+
+    useEffect(() => {
+        async function salvarPost(){
+            const response = await api.post("/salvos/salvar", {
+                id_usuario: context.usuario !== null ? context.usuario.id_usuario : 100000,
+                id_postagem: id_postagem
+            });
+        }
+
+        async function retirarPost(){
+            const response = await api.post("/salvos/retirar", {
+                id_usuario: context.usuario !== null ? context.usuario.id_usuario : 100000,
+                id_postagem: id_postagem
+            });
+        }
+
+        if(postSalvo === true) salvarPost();
+        if(postSalvo === false) retirarPost();
+    }, [postSalvo]);
 
     return(
         <Container>
@@ -89,7 +108,6 @@ export function Post({
                 status={status}
                 especie={especie}
                 imagem={imagem}
-                salvo={postSalvo}
                 isOpen={isPostModalOpen}  
                 onRequestClose={handleClosePostModal}
             />

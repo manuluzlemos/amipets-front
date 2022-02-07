@@ -18,7 +18,6 @@ interface PostModalProps{
     categoria: string,
     status: string,
     especie: string,
-    salvo: boolean
     isOpen: boolean,
     onRequestClose: () => void
 }
@@ -37,11 +36,9 @@ export function PostModal({
     imagem,
     categoria,
     status,
-    especie,
-    salvo
+    especie
 }: PostModalProps){
 
-    const [postSalvo, setPostSalvo] = useState(salvo);
     const [textoComentario, setTextoComentario] = useState('');
     const [comentarios, setComentarios] = useState<ComentarioProps[]>([]);
     const [recarregar, setRecarregar] = useState(false);
@@ -117,9 +114,6 @@ export function PostModal({
                     </BodyPost>
                     <FooterPost>
                         <span>{status}</span>
-                        <span className='savePost' onClick={(event) => setPostSalvo(!postSalvo)}>
-                            {postSalvo ? (<FaBookmark />) : (<FaRegBookmark />)} {}
-                        </span>
                     </FooterPost>
                 </Postagem>
                 <ComentariosLista>
