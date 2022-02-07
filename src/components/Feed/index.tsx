@@ -60,7 +60,7 @@ export function Feed({ page } : FeedProps){
         <Container>
             {posts.map(post => (
                     <Post
-                        key={post.id_postagem}
+                        key={page+post.id_postagem}
                         id_postagem={post.id_postagem}
                         username={post.username}
                         categoria={post.categoria}
@@ -68,6 +68,7 @@ export function Feed({ page } : FeedProps){
                         especie={post.especie}
                         texto={post.texto}
                         imagem={post.imagem}
+                        page={page}
                     />
             ))}
         </Container>

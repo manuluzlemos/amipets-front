@@ -36,7 +36,7 @@ export function Filtro(){
     useEffect(() => {
 
         async function carregarPosts(){
-            const response = await api.post("/postagem/listar", {
+            const response = await api.post("/postagem/mudar", {
                 categoria: categoria,
                 especie: especie,
                 status: status
@@ -60,6 +60,7 @@ export function Filtro(){
                         especie={post.especie}
                         texto={post.texto}
                         imagem={post.imagem}
+                        page="filtro"
                     />
                 ))}
             </PostsLista>

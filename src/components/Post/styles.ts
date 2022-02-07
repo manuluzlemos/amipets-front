@@ -86,4 +86,30 @@ export const FooterPost = styled.div`
             cursor: pointer;
         }
     }
+
+    select{
+        padding: 0 1.5rem;
+        height: 4rem;
+        border-radius: 0.25rem;
+        margin-top: 1.5rem;
+
+        border: 1px solid #d7d7d7;
+        background: #e7e9ee;
+
+        font-weight: 400;
+
+        &::placeholder{
+            color: var(--text-body);
+        }
+    }
+
+    .naoMostrar{
+        display: none;
+    }
+
+    .mostrar{
+        display: inline-block;
+        text-align: center;
+    }
+
 `;
